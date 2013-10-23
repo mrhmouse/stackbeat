@@ -1,6 +1,11 @@
+DMD = dmd
+FLAGS = -release -inline -w -O -ofstackbeat -odbin
+SOURCES = stackbeat.d tokenizer.d
+
 all:
-	dmd stackbeat.d tokenizer.d -release -w -O
+	mkdir bin
+	$(DMD) $(FLAGS) $(SOURCES)
 
 clean:
-	rm stackbeat.o*
-	rm stackbeat || rm stackbeat.exe
+	rm -rf bin
+	rm stackbeat
